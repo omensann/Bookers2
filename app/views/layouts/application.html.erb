@@ -2,26 +2,30 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script src="https://kit.fontawesome.com/7035d8ece7.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <script src="https://kit.fontawesome.com/7035d8ece7.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/7035d8ece7.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <% if user_signed_in? %>
-
+      <div>
+        <a href="/"><h4>Bookers</h4></a>
+      </div>
+      <% if user_signed_in? %><!-- linkは点なし、縦並びから横並びに変更 -->
+        <li>
+          <%= link_to "Home", users_path %> <!-- /users/indexに移行するpath -->
+        </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
-      <% else %>
+      <% else %> <!-- linkは点なし、縦並びから横並びに変更 -->
         <li>
-          <%= link_to "Home", top_path %>
+          <%= link_to "Home", top_path %> <!-- rootに設定してるsignin/signupの画面 -->
         </li>
         <li>
           <%= link_to "About", about_path %>
@@ -34,8 +38,12 @@
         </li>
       <% end %>
     </header>
-    <%= yield %>
-    <p>CopyRight Infratop.inc</p>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 
 </html>
