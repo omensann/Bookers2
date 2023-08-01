@@ -3,7 +3,7 @@
   <head>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
       <script src="https://kit.fontawesome.com/7035d8ece7.js" crossorigin="anonymous"></script>
@@ -16,9 +16,15 @@
       <div>
         <a href="/"><h4>Bookers</h4></a>
       </div>
-      <% if user_signed_in? %><!-- linkは点なし、縦並びから横並びに変更 -->
+      <% if user_signed_in? %> <!-- linkは点なし、縦並びから横並びに変更 -->
         <li>
-          <%= link_to "Home", users_path %> <!-- /users/indexに移行するpath -->
+          <%= link_to "Home", '/users/index' %> <!-- /users/indexに移行するpath -->
+        </li>
+        <li>
+          <%= link_to "Users", users_path %>
+        </li>
+        <li>
+          <%= link_to "Books", books_path %>
         </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
