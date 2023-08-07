@@ -20,7 +20,7 @@
       </div>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", current_user %>
+          <%= link_to "Home", user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to "Users", users_path %>

@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to  about_path
+      redirect_to  book_path(@book.id)
     else
       render :new
     end
@@ -28,9 +28,12 @@ class BooksController < ApplicationController
   def update
   end
 
+  def destroy
+  end
+
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :profile_image)
   end
 end
