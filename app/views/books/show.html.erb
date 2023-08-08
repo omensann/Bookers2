@@ -2,9 +2,13 @@
 <table>
   <tbody>
     <tr>
-      <td><%= image_tag 'no_image.jpg' ></td>
+      <td><%= image_tag @book.get_profile_image(100, 100) %></td>
       <td><%= link_to @book.title %></td>
       <td><%= @book.body %></td>
+      <% if @book.user == current_user %>
+        <td><%= link_to "Edit", edit_book_path(@book) %></td>
+        <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>
