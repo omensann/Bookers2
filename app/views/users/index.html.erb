@@ -1,9 +1,18 @@
+<%= render '/books/list', books: @books %>
+
 <h2>Users</h2>
 <table>
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>画像</th>
+      <th>名前</th>
     </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100, 100) %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show", user_path(user) %></td>
+    </tr>
+    <% end %>
   </thead>
 </table>
