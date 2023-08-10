@@ -4,10 +4,12 @@
 <table>
   <tbody>
     <tr>
-      <td>
-        <%= image_tag current_user.get_profile_image(100, 100) %><br />
-        <%= link_to current_user.name, user_path(current_user.id) %>
-      </td>
+      <% @user.each do |user| %>
+        <td>
+          <%= image_tag user.get_profile_image(100, 100) %><br />
+          <%= link_to user.name, user_path(user) %>
+        </td>
+      <% end %>
       <td><%= link_to @book.title %></td>
       <td><%= @book.body %></td>
       <% if @book.user_id == current_user.id %>
