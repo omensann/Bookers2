@@ -1,0 +1,16 @@
+<h2>User info</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th>名前</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <th><%= user.introduction %></th>
+      </tr>
+      <tr>
+        <td><%= link_to "edit", edit_user_path(current_user) %></td>
+      </tr>
+    </tbody>
+  </table>
