@@ -1,4 +1,13 @@
-<%= render 'list', books: @books %>
+<%= flash[:notice] %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %> 件のエラーが発生しました。
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+  <% end %>
+<%= render 'list',user: @user, books: @books  %>
 <!-- ここからindexの右側のページ -->
 <h2>Books</h2>
 <table>
