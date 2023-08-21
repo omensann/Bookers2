@@ -3,11 +3,11 @@
     <tbody>
       <tr>
         <th>名前</th>
-        <th><%= user.name %></th>
+        <th><%= book.user.name %></th>
       </tr>
       <tr>
         <th>自己紹介</th>
-        <th><%= user.introduction %></th>
+        <th><%= book.user.introduction %></th>
       </tr>
       <tr>
         <td><%= link_to "edit", edit_user_path(current_user) %></td>
