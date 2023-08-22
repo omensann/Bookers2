@@ -1,5 +1,19 @@
-
-<%= current_user.name %>
+<h2>User info</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th>名前</th>
+        <th><%= current_user.name %></th>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <th><%= current_user.introduction %></th>
+      </tr>
+      <tr>
+        <td><%= link_to "edit", current_user %></td>
+      </tr>
+    </tbody>
+  </table>
 <h2>New book</h2>
 <%= form_with model: @books, url: "/books", method: :post do |f| %>
 
