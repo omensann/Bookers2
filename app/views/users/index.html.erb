@@ -2,6 +2,9 @@
   <table>
     <tbody>
       <tr>
+        <td><%= image_tag current_user.get_profile_image(100,100) %></td>
+      </tr>
+      <tr>
         <th>名前</th>
         <th><%= current_user.name %></th>
       </tr>
@@ -10,27 +13,11 @@
         <th><%= current_user.introduction %></th>
       </tr>
       <tr>
-        <td><%= link_to "edit", current_user %></td>
+        <td><%= link_to "edit", edit_user_path(current_user.id) %></td>
       </tr>
     </tbody>
   </table>
-<h2>New book</h2>
-<%= form_with model: @books, url: "/books", method: :post do |f| %>
-
-  <div class="field">
-    <p>本のタイトル</p>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <p>感想</p>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "投稿" %>
-  </div>
-<% end %>
+<%= render 'books/list', books: @books %>
 <h2>Users</h2>
 <table>
   <thead>

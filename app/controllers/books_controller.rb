@@ -11,7 +11,6 @@ class BooksController < ApplicationController
       flash[:notice] = "投稿に成功しました。"
       redirect_to  book_path(@book.id)
     else
-
       render :index
     end
   end
