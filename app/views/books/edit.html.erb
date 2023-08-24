@@ -1,7 +1,17 @@
 <h2>Editing Book</h2>
+<div class="errors">
+  <% if @book.errors.any? %>
+    <h3><%= @book.errors.count %>件のエラーが発生しました。</h3>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
 <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
-  
+
   <div class="field">
     <p>本のタイトル</p>
     <%= f.text_field :title %>
