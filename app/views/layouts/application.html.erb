@@ -12,48 +12,56 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class=" flex-colum vh-100">
     <header class="bg-dark text-white pt-3 pb-2 mb-5">
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 ">
+          <div class="col-xl-10 mx-auto">
             <h4>
-              <%= link_to "Bookers", top_path %>
+              <%= link_to "Bookers", top_path, class: "text-white" %>
             </h4>
           </div>
+          <ul class="list-unstyled">
           <% if user_signed_in? %>
             <li>
-              <%= link_to user_path(current_user.id) do %>
+              <%= link_to user_path(current_user.id), class: "text-white" do %>
                 <i class="fa-solid fa-house-chimney">Home</i>
               <% end %>
             </li>
             <li>
-              <%= link_to "Users", users_path %>
+              <%= link_to "Users", users_path, class: "text-white" %>
             </li>
             <li>
-              <%= link_to "Books", books_path %>
+              <%= link_to "Books", books_path, class: "text-white" %>
             </li>
             <li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white" %>
             </li>
+          </ul>
           <% else %>
             <li>
-              <%= link_to top_path do %>
+              <%= link_to top_path, class: "text-white" do %>
                 <i class="fa-solid fa-house-chimney"></i><p>Home</p>
               <% end %>
             </li>
             <li>
-              <%= link_to about_path do %>
+              <%= link_to about_path, class: "text-white" do %>
                 <i class="fa-solid fa-link"></i><p>About</p>
               <% end %>
             </li>
             <li>
-              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to new_user_registration_path, class: "text-white" do %>
+                <i class="fa-solid fa-user-plus"></i><p>Sign up</p>
+              <% end %>
             </li>
             <li>
-              <%= link_to "Log in", user_session_path %>
+              <%= link_to user_session_path, class: "text-white" do %>
+                <i class="fa-solid fa-right-to-bracket"></i><p>Log in</p>
+              <% end %>
             </li>
+
           <% end %>
+          </ul>
         </div>
       </div>
     </header>
@@ -67,9 +75,9 @@
     <footer class="bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-xl-5">
+          <div class="col-2 mx-auto">
+            <p>CopyRight Infratop.inc</p>
           </div>
-          <p>CopyRight Infratop.inc</p>
         </div>
       </div>
     </footer>
