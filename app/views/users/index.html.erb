@@ -1,38 +1,43 @@
-<h2>User info</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td><%= image_tag current_user.get_profile_image(100,100) %></td>
-      </tr>
-      <tr>
-        <th>名前</th>
-        <th><%= current_user.name %></th>
-      </tr>
-      <tr>
-        <th>自己紹介</th>
-        <th><%= current_user.introduction %></th>
-      </tr>
-      <tr>
-        <td><%= link_to edit_user_path(current_user.id) %>
-          <i class="fa-solid fa-user-gear"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<%= render 'books/list', books: @books %>
-<h2>Users</h2>
-<table>
-  <thead>
-    <tr>
-      <th>画像</th>
-      <th>名前</th>
-    </tr>
-    <% @users.each do |user| %>
-    <tr>
-      <td><%= image_tag user.get_profile_image(100, 100) %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to "Show", user_path(user) %></td>
-    </tr>
-    <% end %>
-  </thead>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+      <%= image_tag current_user.get_profile_image(100,100) %>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th>名前</th>
+              <th><%= current_user.name %></th>
+            </tr>
+            <tr>
+              <th>自己紹介</th>
+              <th><%= current_user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+      <%= link_to edit_user_path(current_user.id), class: "col-12 btn btn-outline-secondary btn-sm" do %>
+        <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+      <%= render 'books/list', books: @books %>
+    </div>
+    <div class="col-8">
+      <h2>Users</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>名前</th>
+            <th></th>
+          </tr>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag user.get_profile_image(100, 100) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user) %></td>
+          </tr>
+          <% end %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

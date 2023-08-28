@@ -1,23 +1,28 @@
-<h2>User info</h2>
-<div class="errors">
-  <% if @user.errors.any? %>
-    <h3><%= @user.errors.count %>件のエラーが発生しました。</h3>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>User info</h2>
+      <div class="errors">
+        <% if @user.errors.any? %>
+          <h3><%= @user.errors.count %>件のエラーが発生しました。</h3>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+        <p>名前</p>
+        <%= f.text_field :name %>
+
+        <p>画像</p>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+
+        <p>自己紹介</p>
+        <%= f.text_area :introduction %><br>
+        <%= f.submit "Update", class: "btn btn-secondary" %>
       <% end %>
-    </ul>
-  <% end %>
+    </div>
+  </div>
 </div>
-<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
-  <p>名前</p>
-  <%= f.text_field :name %>
-
-  <p>画像</p>
-  <%= f.file_field :profile_image, accept: "image/*" %>
-
-  <p>自己紹介</p>
-  <%= f.text_area :introduction %>
-
-  <%= f.submit "Update" %>
-<% end %>

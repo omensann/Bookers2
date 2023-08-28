@@ -1,38 +1,43 @@
-<h2>User info</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
-      </tr>
-      <tr>
-        <th>名前</th>
-        <th><%= @book.user.name %></th>
-      </tr>
-      <tr>
-        <th>自己紹介</th>
-        <th><%= @book.user.introduction %></th>
-      </tr>
-      <tr>
-        <td><%= link_to "edit", edit_user_path(@book.user.id) %></td>
-      </tr>
-    </tbody>
-  </table>
-<%= render 'list', books: @books %>
-
-<h2>Book detail</h2>
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <%= image_tag @book.user.get_profile_image(100, 100) %><br />
-        <%= link_to @book.user.name, user_path(@book.user.id) %>
-      </td>
-      <td><%= link_to @book.title, book_path(@book)  %></td>
-      <td><%= @book.body %></td>
-      <% if @book.user_id == current_user.id %>
-        <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
-        <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "削除してよろしいですか？" %></td>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+      <%= image_tag @book.user.get_profile_image(100,100) %>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <th>名前</th>
+              <th><%= @book.user.name %></th>
+            </tr>
+            <tr>
+              <th>自己紹介</th>
+              <th><%= @book.user.introduction %></th>
+            </tr>
+          </tbody>
+        </table>
+      <%= link_to edit_user_path(@book.user.id), class: "col-12 btn btn-outline-secondary btn-sm" do %>
+        <i class="fa-solid fa-user-gear"></i>
       <% end %>
-    </tr>
-  </tbody>
-</table>
+      <%= render 'list', books: @books %>
+    </div>
+    <div class="col-8">
+      <h2>Book detail</h2>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @book.user.get_profile_image(100, 100) %><br />
+              <%= link_to @book.user.name, user_path(@book.user.id) %>
+            </td>
+            <td><%= link_to @book.title, book_path(@book)  %></td>
+            <td><%= @book.body %></td>
+            <% if @book.user_id == current_user.id %>
+              <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success btn-sm" %></td>
+              <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "削除してよろしいですか？", class: "btn btn-danger btn-sm" %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
