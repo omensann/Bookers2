@@ -18,50 +18,54 @@
         <div class="row">
           <div class="col-8 mx-auto d-flex align-items-center">
             <h4>
-              <%= link_to "Bookers", top_path, class: "text-white" %>
+              <%= link_to "Bookers", top_path, class: "text-white text-decoration-none" %>
             </h4>
           </div>
-          <div>
-            <ul class="list-unstyled list-inline ">
+            <ul class="list-unstyled list-inline mb-0 pt-3">
             <% if user_signed_in? %>
               <li class="list-inline-item">
-                <%= link_to user_path(current_user.id), class: "text-white" do %>
-                  <i class="fa-solid fa-house-chimney">Home</i>
+                <%= link_to user_path(current_user.id), class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-house-chimney mr-1"></i>Home</p>
                 <% end %>
               </li>
-              <li>
-                <%= link_to "Users", users_path, class: "text-white" %>
+              <li class="list-inline-item">
+                <%= link_to users_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-users mr-1"></i>User</p>
+                <% end %>
               </li>
-              <li>
-                <%= link_to "Books", books_path, class: "text-white" %>
+              <li class="list-inline-item">
+                <%= link_to books_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-book-open mr-1"></i>Books</p>
+                <% end %>
               </li>
-              <li>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white" %>
+              <li class="list-inline-item">
+                <%= link_to destroy_user_session_path, method: :delete, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-right-from-bracket mr-1"></i>Log out</p>
+                <% end %>
               </li>
             <% else %>
               <li class="list-inline-item">
-                <%= link_to top_path, class: "text-white" do %>
-                  <p><i class="fa-solid fa-house-chimney "></i>Home</p>
+                <%= link_to top_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-house-chimney mr-1 "></i>Home</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
-                <%= link_to about_path, class: "text-white" do %>
-                  <p><i class="fa-solid fa-link"></i>About</p>
+                <%= link_to about_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-link mr-1 "></i>About</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
-                <%= link_to new_user_registration_path, class: "text-white" do %>
-                  <p><i class="fa-solid fa-user-plus"></i>Sign up</p>
+                <%= link_to new_user_registration_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-user-plus mr-1 "></i>Sign up</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
-                <%= link_to user_session_path, class: "text-white" do %>
-                  <p><i class="fa-solid fa-right-to-bracket"></i>Log in</p>
+                <%= link_to user_session_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-right-to-bracket mr-1 "></i>Log in</p>
                 <% end %>
               </li>
             <% end %>
             </ul>
-          </div>
         </div>
       </div>
     </header>
@@ -72,10 +76,10 @@
     <main>
       <%= yield %>
     </main>
-    <footer class="bg-light">
+    <footer class="bg-light mt-5">
       <div class="container">
         <div class="row">
-          <div class="col-2 mx-auto">
+          <div class="mx-auto">
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>
