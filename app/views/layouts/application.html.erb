@@ -18,19 +18,19 @@
         <div class="row">
           <div class="col-8 mx-auto d-flex align-items-center">
             <h4>
-              <%= link_to "Bookers", top_path, class: "text-white text-decoration-none" %>
+              <%= link_to "Bookers", root_path, class: "text-white text-decoration-none" %>
             </h4>
           </div>
             <ul class="list-unstyled list-inline mb-0 pt-3">
             <% if user_signed_in? %>
               <li class="list-inline-item">
                 <%= link_to user_path(current_user.id), class: "text-white text-decoration-none" do %>
-                  <p class="mr-1"><i class="fa-solid fa-house-chimney mr-1"></i>Home</p>
+                  <p class="mr-1"><i class="fa-solid fa-home mr-1"></i>Home</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
                 <%= link_to users_path, class: "text-white text-decoration-none" do %>
-                  <p class="mr-1"><i class="fa-solid fa-users mr-1"></i>User</p>
+                  <p class="mr-1"><i class="fa-solid fa-users mr-1"></i>Users</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
@@ -45,12 +45,12 @@
               </li>
             <% else %>
               <li class="list-inline-item">
-                <%= link_to top_path, class: "text-white text-decoration-none" do %>
-                  <p class="mr-1"><i class="fa-solid fa-house-chimney mr-1 "></i>Home</p>
+                <%= link_to root_path, class: "text-white text-decoration-none" do %>
+                  <p class="mr-1"><i class="fa-solid fa-home mr-1 "></i>Home</p>
                 <% end %>
               </li>
               <li class="list-inline-item">
-                <%= link_to about_path, class: "text-white text-decoration-none" do %>
+                <%= link_to '/homes/about', class: "text-white text-decoration-none" do %>
                   <p class="mr-1"><i class="fa-solid fa-link mr-1 "></i>About</p>
                 <% end %>
               </li>

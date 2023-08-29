@@ -3,7 +3,7 @@
     <div class="col-3">
       <div class="errors">
         <% if @book.errors.any? %>
-          <h3><%= @book.errors.count %>件のエラーが発生しました。</h3>
+          <h3><%= @book.errors.count %>errors are occurring</h3>
           <ul>
             <% @book.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -26,7 +26,7 @@
         </tbody>
       </table>
       <%= link_to edit_user_path(current_user.id), class: "col-12 btn btn-outline-secondary btn-sm mt-3" do %>
-        <i class="fa-solid fa-user-gear"></i>
+        <i class="fa-solid fa-user-cog"></i>
       <% end %>
       <%= render 'list', books: @books %>
     </div>
@@ -46,7 +46,11 @@
         <tbody>
           <% @books.each do |book| %>
           <tr>
-            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td>
+              <%= link_to user_path(book.user.id) do %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+              <% end %>
+            </td>
             <td><%= link_to book.title, book_path(book) %></td>
             <td><%= book.body %></td>
           </tr>
