@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row align-items-center">
+  <div class="row">
     <div class="col-3">
       <div class="errors">
         <% if @book.errors.any? %>
@@ -25,12 +25,12 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to edit_user_path(current_user.id), class: "col-12 btn btn-outline-secondary btn-sm" do %>
+      <%= link_to edit_user_path(current_user.id), class: "col-12 btn btn-outline-secondary btn-sm mt-3" do %>
         <i class="fa-solid fa-user-gear"></i>
       <% end %>
       <%= render 'list', books: @books %>
     </div>
-
+    <div class="col-1"></div>
 <!-- ここからindexの右側のページ -->
 
     <div class="col-8">

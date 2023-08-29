@@ -15,11 +15,12 @@
             </tr>
           </tbody>
         </table>
-      <%= link_to edit_user_path(@book.user.id), class: "col-12 btn btn-outline-secondary btn-sm" do %>
+      <%= link_to edit_user_path(@book.user.id), class: "col-12 btn btn-outline-secondary btn-sm mt-3" do %>
         <i class="fa-solid fa-user-gear"></i>
       <% end %>
       <%= render 'list', books: @books %>
     </div>
+    <div class="col-1"></div>
     <div class="col-8">
       <h2>Book detail</h2>
       <table class="table table-striped">

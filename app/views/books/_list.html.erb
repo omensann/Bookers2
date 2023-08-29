@@ -2,13 +2,13 @@
 <%= form_with model: books, url: "/books", method: :post do |f| %>
 
   <div class="field">
-    <p>本のタイトル</p>
-    <%= f.text_field :title %>
+    <p class="mb-2">本のタイトル</p>
+    <%= f.text_field :title, class: "col-11 border rounded" %>
   </div>
 
   <div class="field">
-    <p>感想</p>
-    <%= f.text_area :body %>
+    <p class="mb-2 mt-3">感想</p>
+    <%= f.text_area :body, class: "col-11 border rounded" %>
   </div>
 
   <div class="actions">
