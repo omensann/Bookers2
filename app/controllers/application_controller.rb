@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:root, :about, :new_user_registration, :new_user_session]
+  before_action :authenticate_user!, except: [:top, :about, :new_user_registration, :new_user_session]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resouce)

@@ -20,8 +20,10 @@
         <%= f.file_field :profile_image, accept: "image/*" %>
 
         <p>自己紹介</p>
-        <%= f.text_area :introduction %><br>
-        <%= f.submit "Update", class: "btn btn-secondary" %>
+        <%= f.text_area :introduction %>
+        <div class="actions">
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+        </div>
       <% end %>
     </div>
   </div>
